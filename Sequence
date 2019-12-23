@@ -1,6 +1,5 @@
 @startuml
 User -> Browser: URI 
-activate Browser
 alt Если нет соответствия в HSTS
 Browser -> OS: Вызов функции gethostbyname
 alt Если нет соответствия в кэше или в hosts файле
@@ -25,6 +24,7 @@ HTTP_Server -> Server_OS: HTTP ответ
 deactivate HTTP_Server
 Server_OS -> OS: TCP пакет
 OS -> Browser: HTTP ответ
+activate Browser
 alt Выключен keep-alive
 OS -> Server_OS: FIN
 Server_OS -> OS: ACK, FIN
@@ -34,4 +34,4 @@ Browser -> User: Отрисованная страница
 deactivate Browser
 @enduml
 
-http://www.plantuml.com/plantuml/png/bLJTQXD15BwVfpWFqBv0BwIr8WbA6ph9XLTXD8CjtQOrEutqpasb2luK16y5ts0fBbrRJ5_Xd3VoV6nSrjbLAAKmytrdlldE-IQxcGOt2wT7YHcbVaRh3-ZXxFYrBZTejDSdurw4WxaB_WziN1A8lqh6jrmI_-925gIx9IzbmLVOIeOLbt99V4KzExHcTHZoktQ3-8jyu6jUAYrlvLnLRkI2InLywSF-SHgUdqtTaR_tNIhpITvpGLpY222efNeBv_nJiSBiMhXuj6F7QcYEFhVs1ZJphqvz6aoDgzVAx8e-ISxqQkeFoFWazGrR1Jp8ntyOu-9_nk2ckaQLZPzExY_UFM7uX5obRpqw6eCOsW7rt7IIxhj3twRjinrJRy6jm3NQsdxIAbVmAS3cg-7lwhJW7rmYCFs7Ipc7PSvrgw4Z1wnYqxtXS41yhMLtyaQxpLGxSh-j1NTQS8Cn_EqKfySLqYLLF-H6dMcieyugWNhYPkAx1E9PnGxZuSIgUE3uCMZrhNoMTvWB7Nf_ikwIWtb7Fe_xxNmGpHgOLZaOF8Fce4TLIjzaeOCf9KCW24R_ShaaoK00KFA2SpGUVm8sLLA_6By1
+http://www.plantuml.com/plantuml/png/bPHVQjj04CRVznHpWEG2UIX9KufDIYAoyaEVpBPUcX35IQMDIzugfxY5_Z4K-bhe3OIfi6fJ-mepD-gC9OIwLWl667PdHj_-zlja7oREnExkEbAznCQm_mWUnpTlU7a0lVCkA1Cvm6-KuX8BmD-OqnXujy8LZN4cMqetguAcW3Few50haQZKplG1u5VwY7DSSPlUqGEhB6Y21Gk-ikxY9d4lxeVcskvy5ijyfW-O0nRoY9H4BU5JCCDVNClLcHQA9wUwpq0ZkTRHUG2nVNrd4wVgEhDMi6NxDhhdew4RWB9HOXjOkJ3Gft-0OVu_i8g6Zs5bPOU3tSNR7HPEbglqzUP6VMc4Ee2E6GwI2tDbjzlw-QcgjzAhYdjmT7ooDSx5Pr9ilYJuWqbp_8c51CPVeQI73NB6MmvTSf2L3zq9mm1mpcDhUiktJLdRep_cWJKFBCI6lqdbwNvPQPCoBztbo3ZRd5EDjNUpKg1sN0ricu3lbK_ec-EhrfhLXBpnvQzZWKlwGk_5ABYozdRVH9UZbi2UTbi2uwpsfDCMs8cy5qtdUsLitsdCJXMKIaAI57yocWAbqf02DoUOYHC-zI5ByZ_67m00

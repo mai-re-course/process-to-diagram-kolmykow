@@ -1,0 +1,24 @@
+@startuml
+start
+
+:Ввод URL;
+if (Есть IP в списке HSTS?) then (Да)
+ elseif (Есть IP в файле hosts или в DNS кэше?) then (Нет)
+:Отправление ARP запроса;
+:Обработка ARP запроса и извлечение из него IP;
+else(Да)
+endif
+:Открытие сокета;
+:TCP Handshake;
+:Запрос к HTTP серверу;
+:Ответ от HTTP сервера;
+if (Включен keep-alive) then (Нет)
+:Завершение TCP соединения;
+else (Да)
+endif
+:Парсинг HTML страницы;
+:Рендеринг страницы;
+stop
+@enduml
+
+http://www.plantuml.com/plantuml/png/RP9FJi9W4CNtFSKiPU45x4ACBZ11Gw0Ue0aVWO10R7KDrIW9_ac8nfL_Zb0A3GYXN67cHhwn119XKvZvtdlpctxDUhvxvLzVDgo_FvPrm0EEEE4nNHJpjbMhq1w_ILS2UQJJ0d54qkKbJ_6SSKovabCwp91VDKq8NpdCM6GQdjdbk-EGVtWELxNb-Hxn5CLKZqxEIyGpUP8Unvkq3uubo83eKm9UIWVsIEsyW3Eceo9Y9sZgKGAUq5Oj3rN9GxG288OxT9YimoTfd3oi8xL9l40zuWJOjgMxhFOopNAjajA0jIDz_Ae9YOc-2vHAu1mNAESsorxLhHibUj-CnfAKSvo2UcAq8dtAhRrArJ8W1TzMSRYwZ05cpUKvfQQwCUrzjr6xCTklJGUd4thh3PLEWT4Oex583-GbtPJ-hVh58TnT5V88J6TvqYjL6bRRlVIL_LjJUAoZKkaEbUUtsbOMmVZMVW40
